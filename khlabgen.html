@@ -1,0 +1,99 @@
+<html>
+<html lang="ar">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<head><title>مستشفي سواعد الفجص المعملي</title>
+ <style>.signup { border: 1px solid #999999; 
+ font: normal 14px helvetica; color:#444444; }</style>
+ <script>
+ function validate(form) {  
+ fail  = validateStdnumber(form.stdnumber.value)   
+ fail += validateStdname(form.stdname.value)    
+ fail += validateStdaddress(form.stdaddress.value)   
+ fail += validateFeast(form.feast.value)  
+ fail += validateSymester(form.symester.value)   
+ fail += validateDate(form.Date.value)  
+ if (fail == "") return true   
+ else { alert(fail); return false }
+ } 
+ </script></head><body>
+  <div dir="rtl">
+ <center>  <h1>معامل مستتشفي سواعد</h1>
+  <center>  <h4>Renal Function Test</h4>
+   <form method="post" action="khlabgen.php" onSubmit="return validate(this)"> 
+        <tr>الإسم<input type="text" maxlength="100"   name="unit_no" />
+ <tr>العمر<input type="text" maxlength="32"  name="pat_age" />
+ <tr>إسم الطبيب<input type="text" maxlength="100"  name="docname" />
+  <tr>التاريخ<input type="date" maxlength="100"  name="tdate" />
+ </div>
+ <table class="Register" border="0" cellpadding="2"  cellspacing="5" bgcolor="LightSlateGray"> 
+ <form method="post" action="khlabgen.php" onSubmit="return validate(this)"> 
+   </tr><td>B.Urea</td><td><input type="text" maxlength="100"    name="bu" /></td>
+	    <td>Unit</td><td><input type="text" maxlengh="100"    name="norange"  value="mg/dl"></td>
+	  	  <td>Normal Range</td><td><input type="text" maxlength="100"    name="norange"  value="80-120"></td>
+		  		  </tr><tr><td>SCreatinine</td><td><input type="text" maxlength="100"    name="scr" /></td>
+		  		      <td>Unit</td><td><input type="text" maxlength="100"    name="norange"  value="mg/dl"></td>
+	  	  <td>Normal Range</td><td><input type="text" maxlength="100"    name="norange"  value="0.2-1.6"></td>
+		   			   </tr><tr><td>S.Nat+</td><td><input type="text" maxlength="15"    name="snat" /></td>
+			       <td>Unit</td><td><input type="text" maxlength="100"    name="norange"  value="mmol/L"></td>
+	   	  <td>Normal Range</td><td><input type="text" maxlength="100"    name="norange"  value="135-145"></td>
+		 			    </tr><tr><td>Sk+</td><td><input type="text" maxlength="15"    name="sk" /></td>
+				   <td>Unit</td><td><input type="text" maxlength="100"    name="norange"  value="mmol/L"></td>
+			  <td>Normal Range</td><td><input type="text" maxlength="100"    name="norange"  value="3.5-5.0"></td>
+			   			   	    </tr><tr><td>UrineAcid</td><td><input type="text" maxlength="15"    name="uric" /></td>
+					  <td>Unit</td><td><input type="text" maxlength="100"    name="norange"  value="mg/dl"></td>
+			  <td>Normal Range</td><td><input type="text" maxlength="100"    name="norange"  value="M:3.5-7.2F:2.6-6.0"></td>
+			   			    		 </tr><tr><td>Ca++</td><td><input type="text" maxlength="15"    name="ca" /></td>
+						  <td>Unit</td><td><input type="text" maxlength="100"    name="norange"  value="mg/dl"></td>
+		 	  <td>Normal Range</td><td><input type="text" maxlength="100"    name="norange"  value="8.0-10.3"></td>
+			  			   </tr><tr><td>mg++</td><td><input type="text" maxlength="15"    name="mg" /></td>
+			     <td>Unit</td><td><input type="text" maxlength="100"    name="norange"  value="Mg/dl"></td>
+		  	  <td>Normal Range</td><td><input type="text" maxlength="100"    name="norange"  value="1.7-2.4"></td>
+			  </tr><tr><td>Phosphorous</td><td><input type="text" maxlength="15"    name="phos" /></td>
+			 
+			  </tr><tr><td><p align="right">...</td><td>
+			  </tr><tr><td><p align="right">............................................................................................التوقيع</td><td>
+		      </tr><tr><td colspan="2"   align="center">    <input type="submit" value="Signup" /></td>
+  </tr></form></table>
+  <script>
+  function validateStdnumber(field) { 
+  if (field == "") return "No Student Number was entered.\n"   
+  return ""
+  }
+function validateStdname(field) { 
+   if (field == "") return "No Student Name was entered.\n"  
+   return ""
+   }
+   function validateStdaddress(field) { 
+   if (field == "") return "No Student Address was entered.\n"  
+   else if (field.length < 5)      
+   return "Student Address must be at least 5 characters.\n"  
+   else if (/[^a-zA-Z0-9_-]/.test(field))      
+   return "Only a-z, A-Z, 0-9, - and _ allowed in Usernames.\n"  
+   return "" 
+   }
+   function validateFeast(field) {   
+   if (field == "") return "No Password was entered.\n"   
+   else if (field.length < 6)      
+   return "Passwords must be at least 6 characters.\n"  
+   else if (!/[a-z]/.test(field) || ! /[A-Z]/.test(field) ||!/[0-9]/.test(field))      
+   return "Passwords require one each of a-z, A-Z and 0-9.\n" 
+   return "" 
+   }
+   function validateSymester(field) { 
+   if (isNaN(field))
+   return "No Age was entered.\n"  
+   else if (field < 18 || field > 110)    
+   return "Age must be between 18 and 110.\n" 
+   return "" 
+   }
+   function validateDate(field) { 
+   if (field == "") 
+   return "No Date was entered.\n"
+         else if (!((field.indexOf(".") > 0) && (field.indexOf("@") > 0)) ||  /[^a-zA-Z0-9.@_-]/.test(field))     
+		 return "The Email address is invalid.\n"  
+		 return ""
+		 }
+		 </script>
+		 </body>
+		 </html>
